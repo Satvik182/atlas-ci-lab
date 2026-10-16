@@ -20,11 +20,15 @@ jobs:
       - name: Run tests
         run: npm test
 
+  
   deploy-check:
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Deploy
-        run: echo "Deploying with token $APP_TOKEN"
+        run: echo "Deployment check successful"
         env:
-          APP_TOKEN: ${{ secrets.APP_TOK }}
+          APP_TOKEN: ${{ secrets.APP_TOKEN }}
+
